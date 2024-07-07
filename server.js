@@ -1,8 +1,12 @@
 const dotenv = require("dotenv");
-const mongoose = require("mongoose"); 
-const app = require('./app');
+const mongoose = require("mongoose");
+const app = require("./app");
 
-// Create an instance of express
+process.on("uncaughtException", (err) => {
+  console.log("UNCAUGHT EXCEPTION! 💥 Shutting down...");
+  console.log(err.name, err.message);
+  process.exit(1);
+});
 
 dotenv.config({ path: "./.env" });
 
@@ -18,4 +22,12 @@ mongoose
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.log("UNHANDLED REJECTION! 💥 Shutting down...");
+  console.log(err.name, err.message);
+  server.close(() => {
+    process.exit(1);
+  });
 });

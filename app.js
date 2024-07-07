@@ -1,5 +1,11 @@
 const express = require("express");
 const productRoutes = require("./routers/productRoute");
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController');
+
+
+
+
 const app = express();
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -10,6 +16,6 @@ app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
 
-
+app.use(globalErrorHandler)
 
 module.exports = app;
