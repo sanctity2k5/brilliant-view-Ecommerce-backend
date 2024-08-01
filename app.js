@@ -2,6 +2,10 @@ const express = require("express");
 const path = require("path");
 const productRoutes = require("./routers/productRoute");
 const userRoutes = require("./routers/userRoute");
+const reviewRoutes = require("./routers/reviewRoute");
+const orderRoutes = require("./routers/orderRouter");
+const addressRoutes = require("./routers/addressRoute");
+const cartRoutes = require("./routers/cartRoute");
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
 const rateLimit = require("express-rate-limit");
@@ -9,10 +13,13 @@ const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const bodyParser = require("body-parser");
 const hpp = require("hpp");
+const cors = require("cors");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
+app.options("*", cors());
 // Serving static files
 app.use(express.static(path.join(__dirname, "public")));
 app.use(helmet());
@@ -50,8 +57,12 @@ app.use((req, res, next) => {
 app.use(express.json({ limit: "10kb" }));
 
 // Use the product routes
-app.use("/api", productRoutes);
+app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/reviews", reviewRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/address", addressRoutes);
+app.use("/api/cart", cartRoutes);
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });

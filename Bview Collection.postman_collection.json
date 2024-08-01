@@ -1,0 +1,949 @@
+{
+	"info": {
+		"_postman_id": "7c79e432-d0c7-47b8-bfe7-f72841483968",
+		"name": "Bview Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "13849179"
+	},
+	"item": [
+		{
+			"name": "ProductsApis",
+			"item": [
+				{
+					"name": "GetAllProducts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/products"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Power Bank\",\r\n      \"price\": 198000,\r\n      \"discountPercentage\": 5,\r\n      \"description\": \"This is a sample description for a smartphone.\",\r\n      \"category\": \"Electronics\",\r\n      \"inStock\": true,\r\n      \"imageCover\": \"https://example.com/images/smartphone_cover.jpg\",\r\n      \"images\": [\r\n        \"https://example.com/images/smartphone_1.jpg\",\r\n        \"https://example.com/images/smartphone_2.jpg\",\r\n        \"https://example.com/images/smartphone_3.jpg\"\r\n      ],\r\n      \"video\": \"https://example.com/videos/smartphone.mp4\",\r\n      \"rating\": 3\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/products"
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneProduct",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Sample Product 1\",\r\n      \"price\": 19.99,\r\n      \"description\": \"This is a sample description for product 1.\",\r\n      \"category\": \"Electronics\",\r\n      \"inStock\": true,\r\n      \"images\": {\r\n        \"main\": \"https://example.com/images/product1_main.jpg\",\r\n        \"others\": [\r\n          \"https://example.com/images/product1_1.jpg\",\r\n          \"https://example.com/images/product1_2.jpg\"\r\n        ]\r\n      },\r\n      \"rating\": 4.5\r\n    },\r\n    {\r\n      \"name\": \"Sample Product 2\",\r\n      \"price\": 29.99,\r\n      \"description\": \"This is a sample description for product 2.\",\r\n      \"category\": \"Home Appliances\",\r\n      \"inStock\": false,\r\n      \"images\": {\r\n        \"main\": \"https://example.com/images/product2_main.jpg\",\r\n        \"others\": [\r\n          \"https://example.com/images/product2_1.jpg\",\r\n          \"https://example.com/images/product2_2.jpg\"\r\n        ]\r\n      },\r\n      \"rating\": 4.8\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/products/669b9a42abcf741fe238e4f6"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Sample Product 1\",\r\n      \"price\": 19.99,\r\n      \"description\": \"This is a sample description for product 1.\",\r\n      \"category\": \"Electronics\",\r\n      \"inStock\": true,\r\n      \"images\": {\r\n        \"main\": \"https://example.com/images/product1_main.jpg\",\r\n        \"others\": [\r\n          \"https://example.com/images/product1_1.jpg\",\r\n          \"https://example.com/images/product1_2.jpg\"\r\n        ]\r\n      },\r\n      \"rating\": 4.5\r\n    },\r\n    {\r\n      \"name\": \"Sample Product 2\",\r\n      \"price\": 29.99,\r\n      \"description\": \"This is a sample description for product 2.\",\r\n      \"category\": \"Home Appliances\",\r\n      \"inStock\": false,\r\n      \"images\": {\r\n        \"main\": \"https://example.com/images/product2_main.jpg\",\r\n        \"others\": [\r\n          \"https://example.com/images/product2_1.jpg\",\r\n          \"https://example.com/images/product2_2.jpg\"\r\n        ]\r\n      },\r\n      \"rating\": 4.8\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/products/668c5e1dc9ab040e7d6ecea0"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"laptop\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/products/668ae3d76b42c9d06c577485"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserApis",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"name\": \"Dev Kachi\",\r\n    \"email\": \"test67@gmail.com\",\r\n    \"password\": \"test12345\"\r\n    // \"passwordConfirm\": \"test12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8000/api/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Dan\",\r\n    \"email\": \"brilliantviewventures@gmail.com\",\r\n    \"password\": \"test12345\",\r\n    \"passwordConfirm\": \"test12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/users/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "test-header",
+								"value": "Kachi",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/users/users"
+					},
+					"response": []
+				},
+				{
+					"name": "forgotPassword",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"name\": \"Dev Kachi\",\r\n    \"email\": \"test67@gmail.com\"\r\n    // \"password\": \"test12345\"\r\n    // \"passwordConfirm\": \"test12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/users/forgotPassword"
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"name\": \"Dev Kachi\",\r\n    // \"email\": \"brilliantviewventures@gmail.com\"\r\n    \"password\": \"onyii12345\",\r\n    \"passwordConfirm\": \"test12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/users/resetPassword/e64a8cbd0883a72c00ced10669e12af44cfb080a6485fdf34f3e8e287e814422"
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"name\": \"Dev Kachi\",\r\n    // \"email\": \"brilliantviewventures@gmail.com\"\r\n    \"password\": \"onyii12345\",\r\n    \"passwordConfirm\": \"test12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/users/updatePassword/668bcc53fcebd7bd02b5d488"
+					},
+					"response": []
+				},
+				{
+					"name": "updateMe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Daniel\",\r\n   \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/users/deleteMe"
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "test-header",
+								"value": "Kachi",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Devman Kachi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/users/668b8bca36edd3f2d5b62287"
+					},
+					"response": []
+				},
+				{
+					"name": "GetCurrentUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "test-header",
+								"value": "Kachi",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/users/me"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"name\": \"Dev Kachi\",\r\n    \"email\": \"test67@gmail.com\",\r\n    \"password\": \"test12345\"\r\n    // \"passwordConfirm\": \"test12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8000/api/users/logout"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ReviewsApis",
+			"item": [
+				{
+					"name": "GetAllReviews",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"starRating\": 4.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/reviews"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateReview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"668b8bca36edd3f2d5b62287\",\r\n  \"title\": \"Excellent Purchase!\",\r\n  \"content\": \"I am very satisfied with this product. It arrived quickly and works perfectly.🔥🔥🔥\",\r\n  \"starRating\": 4\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/products/669b9a42abcf741fe238e4f6/reviews"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reviews of a Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"668b8bca36edd3f2d5b62287\",\r\n  \"product\": \"668c631416a5bd4f48839625\",\r\n  \"title\": \"Excellent Purchase!\",\r\n  \"content\": \"I am very satisfied with this product. It arrived quickly and works perfectly.\",\r\n  \"starRating\": 4\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/products/668c631416a5bd4f48839625/reviews"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateReview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"starRating\": 4.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/reviews/668ed6e707168550cd24e8d0"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OrderApis",
+			"item": [
+				{
+					"name": "GetAllOrders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"60d0fe4f5311236168a109ca\",\r\n  \"products\": [\r\n    {\r\n      \"product\": \"60d0fe4f5311236168a109cb\",\r\n      \"quantity\": 3,\r\n      \"price\": 150000\r\n    },\r\n    {\r\n      \"product\": \"60d0fe4f5311236168a109cc\",\r\n      \"quantity\": 2,\r\n      \"price\": 80000\r\n    }\r\n  ],\r\n  \"shippingAddress\": \"60d0fe4f5311236168a109cd\",\r\n  \"totalPrice\": 230000,\r\n  \"status\": \"pending\",\r\n  \"paymentMethod\": \"credit_card\",\r\n  \"shippingDate\": \"2024-07-15T00:00:00.000Z\",\r\n  \"pickedUpDate\": null\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneOrder",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"country\": \"Germany\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/orders/669d81c3b91eae169ce30ed7"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"arrived\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/orders/669d83b58aec1d25e05556e6"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"arrived\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/orders/669d83b58aec1d25e05556e6"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AddressApis",
+			"item": [
+				{
+					"name": "GetAllAddresses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"60d0fe4f5311236168a109ca\",\r\n  \"products\": [\r\n    {\r\n      \"product\": \"60d0fe4f5311236168a109cb\",\r\n      \"quantity\": 3,\r\n      \"price\": 150000\r\n    },\r\n    {\r\n      \"product\": \"60d0fe4f5311236168a109cc\",\r\n      \"quantity\": 2,\r\n      \"price\": 80000\r\n    }\r\n  ],\r\n  \"shippingAddress\": \"60d0fe4f5311236168a109cd\",\r\n  \"totalPrice\": 230000,\r\n  \"status\": \"pending\",\r\n  \"paymentMethod\": \"credit_card\",\r\n  \"shippingDate\": \"2024-07-15T00:00:00.000Z\",\r\n  \"pickedUpDate\": null\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/address"
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneAddress",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"country\": \"Germany\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/orders/669d81c3b91eae169ce30ed7"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"arrived\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/orders/669d83b58aec1d25e05556e6"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGJjYzUzZmNlYmQ3YmQwMmI1ZDQ4OCIsImlhdCI6MTcyMDQ1MjYwM30.YP7Pxnkz2_qvoLYCG8esoFlSKLiCmsCe9IaYthlqoNg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"arrived\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/api/orders/669d83b58aec1d25e05556e6"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

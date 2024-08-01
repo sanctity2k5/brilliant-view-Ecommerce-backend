@@ -36,7 +36,11 @@ const productSchema = new mongoose.Schema(
     category: {
       type: String,
       required: [true, "A product must have a category"],
-      trim: true,
+      enum: ["Solar-Panel", "Streetlight", "Inverter", "CCTV", "Telecom-Devices", "Networking", "Computers" ],
+    },
+    subCategory: {
+      type: String,
+      enum: ["Battery", "Charge-Controller"]
     },
     inStock: {
       type: Boolean,
@@ -62,9 +66,20 @@ const productSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, // Automatically adds createdAt and updatedAt fields
+    timestamps: true,
+  },
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
+
+// Virtual populate reviews
+productSchema.virtual("reviews", {
+  ref: "Review",
+  foreignField: "product",
+  localField: "_id",
+});
 
 // Middleware to calculate priceDiscount before saving
 productSchema.pre("save", function (next) {
