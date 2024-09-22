@@ -20,7 +20,7 @@ const {
 const router = express.Router();
 
 router.route("/").get(getAllUsers);
-router.route("/:id", getUser)
+router.route("/:id").get(getUser);
 
 router.post("/signup", signup);
 router.post("/login", login);
